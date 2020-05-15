@@ -1,0 +1,19 @@
+<h3>Add Transaction</h3>
+<form [formGroup]="transactionForm" (ngSubmit)="saveTransaction()">
+    <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="customerId" [matAutocomplete]="auto">
+        <mat-autocomplete [displayWith]="displayFn" #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredCustomerList | async" [value]="option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-button-toggle-group formControlName="debt">
+        <mat-button-toggle value="true">Credit</mat-button-toggle>
+        <mat-button-toggle value="false">Payment</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-form-field>
+        <input matInput type="text" formControlName="amount" placeholder="Amount" />
+    </mat-form-field>
+    <button mat-stroked-button color="primary">Save</button>
+</form>

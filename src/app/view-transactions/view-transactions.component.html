@@ -1,0 +1,23 @@
+<mat-table [dataSource]="transactions">
+    <!-- User name Definition -->
+    <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.date | date: 'dd MMM yy hh:mm a'}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Definition -->
+    <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> Customer Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.customerName}} </mat-cell>
+    </ng-container>
+
+    <!-- Title Definition -->
+    <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+        <mat-cell *matCellDef="let row" [ngClass]="{'red': row.amount < 0, 'green': row.amount > 0}"> {{row.amount}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['username', 'age', 'title']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['username', 'age', 'title']"></mat-row>
+</mat-table>
