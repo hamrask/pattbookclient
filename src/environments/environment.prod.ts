@@ -1,6 +1,6 @@
+const apiUrl = 'https://credit.adbro.in';
 export const environment = {
-  apiUrl: 'https://credit.adbro.in',
-  customerUrl: this.apiUrl + 'customer/',
-  transactionUrl: this.apiUrl + 'transaction',
+  customerUrl: apiUrl + 'customer/',
+  transactionUrl: apiUrl + 'transaction',
   production: true
 };
