@@ -16,7 +16,8 @@ customers = [];
   }
   // get all customers
   getCustomers() {
-    this.service.getCustomers().subscribe(Response => {
+    this.service.getCustomers();
+    this.service.customerList.subscribe(Response => {
       this.customers = Response;
     }, error => {
       console.log(error);

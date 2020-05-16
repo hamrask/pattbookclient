@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>list</mat-icon>
+            <label>List</label>
+        </ng-template>
+        <app-view-transactions></app-view-transactions>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>add</mat-icon>
+            <label>Transaction</label>
+        </ng-template>
+        <app-add-transaction></app-add-transaction>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>person</mat-icon>
+            <label>Customer</label>
+        </ng-template>
+        <app-add-customer></app-add-customer>
+    </mat-tab>
+</mat-tab-group>

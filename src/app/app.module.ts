@@ -20,6 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatSnackBarModule,
     MatTableModule,
     MatButtonToggleModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTabsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

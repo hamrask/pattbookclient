@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddCustomerComponent implements OnInit {
   customerForm = this.fb.group({
       name: ['', Validators.required],
-      mobile: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern(/^([+]\d{2})?\d{10}$/)]],
       address: [''],
       createdDate: [null]
   });
@@ -23,9 +23,24 @@ export class AddCustomerComponent implements OnInit {
     if (this.customerForm.valid) {
       this.service.addCustomer(this.customerForm.value).subscribe(Response => {
         this.snack.open('Customer Saved Successfully', '', {duration: 600});
+        this.service.getCustomers();
+        this.customerForm.reset();
+        this.customerForm.markAsUntouched();
+        this.customerForm.markAsPristine();
+        this.customerForm.updateValueAndValidity();
       }, error => {
-        console.log(error);
-        this.snack.open('Something went wrong!', '', {duration: 600});
+        let message = null;
+        if (error) {
+          if (error.error) {
+            if (error.error.message) {
+              message = error.error.message;
+            }
+          }
+        }
+        if (!message) {
+          message = 'Something went wrong.please try again';
+        }
+        this.snack.open(message, '', {duration: 600});
       });
     }
   }

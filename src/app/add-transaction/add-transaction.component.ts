@@ -53,7 +53,8 @@ filteredCustomerList: Observable<any[]>;
   }
   // get customers
   getCustomers() {
-    this.customer.getCustomers().subscribe(Response => {
+    this.customer.getCustomers();
+    this.customer.customerList.subscribe(Response => {
       this.customersList = Response;
     }, error => {
       this.snack.open('Something went wrong', '', {duration: 600});

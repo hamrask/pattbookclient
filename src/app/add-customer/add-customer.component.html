@@ -9,5 +9,5 @@
     <mat-form-field>
         <input matInput type="text" formControlName="address" placeholder="Address" />
     </mat-form-field>
-    <button mat-stroked-button color="primary">Save</button>
+    <button mat-stroked-button color="primary" [disabled]="customerForm.invalid">Save</button>
 </form>
