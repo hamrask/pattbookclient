@@ -15,7 +15,8 @@ export class AddTransactionComponent implements OnInit {
 transactionForm = this.fb.group({
   customerId: ['', Validators.required],
   debt: ['true', Validators.required],
-  amount: [null, Validators.required]
+  amount: [null, Validators.required],
+  billNumber:[null]
 });
 customersList = [];
 filteredCustomerList: Observable<any[]>;

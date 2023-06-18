@@ -23,7 +23,7 @@ export class TransactionService {
   }
   // filter transactions
   filterTransactions(body: Filter) {
-    const url = environment.transactionUrl + 'filter';
+    const url = environment.transactionUrl + '/filter';
     return this.http.post(url, body);
   }
 }

@@ -22,6 +22,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioGroup, MatRadioModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonToggleModule,
     MatAutocompleteModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

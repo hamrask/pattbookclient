@@ -1,3 +1,13 @@
+
+<mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="customerId" [matAutocomplete]="auto">
+    <mat-autocomplete [displayWith]="displayFn" #auto="matAutocomplete" (optionSelected)="searchTransaction()">
+        <mat-option *ngFor="let option of filteredCustomerList | async" [value]="option">
+            {{option.name}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+<h3>Balance: {{total}}</h3>
 <mat-table [dataSource]="transactions">
     <!-- User name Definition -->
     <ng-container matColumnDef="username">
@@ -16,8 +26,13 @@
         <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
         <mat-cell *matCellDef="let row" [ngClass]="{'red': row.amount < 0, 'green': row.amount > 0}"> {{row.amount}} </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="billnumber">
+        <mat-header-cell *matHeaderCellDef> Bill Number </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.billNumber}} </mat-cell>
+    </ng-container>
+
 
     <!-- Header and Row Declarations -->
-    <mat-header-row *matHeaderRowDef="['username', 'age', 'title']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['username', 'age', 'title']"></mat-row>
+    <mat-header-row *matHeaderRowDef="['username', 'age', 'title','billnumber']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['username', 'age', 'title','billnumber']"></mat-row>
 </mat-table>
